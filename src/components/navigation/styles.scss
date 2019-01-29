@@ -1,0 +1,116 @@
+$hoverColor: rgba(0, 162, 255, 1);
+$background_mobile_color: rgb(69, 221, 255);
+
+.navbar {
+  display: block;
+  list-style: none;
+  li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+}
+.navbar,
+.mobileWrapper {
+    li {
+      position: relative;
+      text-transform: uppercase;
+      cursor: pointer;
+      &:after{
+        position: absolute;
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: $hoverColor;
+        width: 0;
+        transition: width .3s ease-in-out;
+      }
+      &:hover{
+        color: $hoverColor;
+        &:after{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+.navigation__li__active {
+  color: $hoverColor;
+  border-bottom: 1px solid $hoverColor;
+}
+
+.mobileWrapper {
+  display: block;
+  background: $background_mobile_color;
+  margin: 0;
+  height: 100%;
+  .closeButton {
+    display: block;
+    top: 10px;
+    right: 10px;
+    padding: 13px 10px;
+    position: absolute;
+    span {
+      position: relative;
+    }
+    span,
+    &:before,
+    &:after {
+      display: block;
+      width: 25px;
+      height: 1px;
+      background-color: gray;
+      content: '';
+      margin: 2px 0;
+      transition: all 0.5s
+    }
+    &:before{
+      position: absolute;
+      top: 5px;
+    }
+    &:after {
+      position: absolute;
+      bottom: 5px;
+    }
+  }
+
+  ul{
+    list-style: none;
+    width: max-content;
+    li {
+      margin: 10px 0;
+      width: 100%;
+    }
+  }
+}
+
+.closed {
+  width: max-content;
+  position: relative;
+  ul{
+    display: none;
+  }
+}
+
+.opened {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  overflow: hidden;
+  ul{
+    display: block;
+  }
+.closeButton {
+  span {
+    background-color: transparent;
+  }
+  &:after {
+    transform: rotate(-45deg) translate(3px, 3px);
+    transform-origin: left;
+  }
+  &:before {
+    transform: rotate(45deg) translateX(2px) translateY(-3px);
+    transform-origin: left;
+  }
+}
+
+}

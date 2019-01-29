@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700');
+$background_color_lightGrey: rgba(245, 245, 245, 1);
+html{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+body {
+  background-color: $background_color_lightGrey;
+}

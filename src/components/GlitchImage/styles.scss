@@ -1,0 +1,90 @@
+.main_img {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  right: 20px;
+  bottom: 25px;
+  margin: {
+    top: 20px;
+  };
+  max-width: 60vmin;
+}
+@keyframes img1 {
+  95% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.4;
+  }
+}
+@keyframes img2 {
+  95% {
+    transform: none;
+  }
+  96% {
+    transform: translateX(5px);
+  }
+  97% {
+    transform: translateX(-5px);
+  }
+  98% {
+    transform: translateX(15px);
+  }
+  99% {
+    transform: translateX(-15px);
+  }
+};
+
+@keyframes img3 {
+  95% {
+    transform: none;
+  }
+  96% {
+    transform: translateX(-5px);
+  }
+  97% {
+    transform: translateX(5px);
+  }
+  98% {
+    transform: translateX(-15px);
+  }
+  99% {
+    transform: translateX(15px);
+  }
+};
+
+@keyframes img4 {
+  95% {
+    transform: none;
+  }
+  96% {
+    transform: translateX(5px);
+  }
+  97% {
+    transform: translateX(-5px);
+  }
+  98% {
+    transform: translateX(15px);
+  }
+  99% {
+    transform: translateX(-15px);
+  }
+};
+.main_img__1 {
+  animation: img1 3s linear infinite;
+}
+
+.main_img__2 {
+  clip-path: polygon(0 31%, 0 18%, 100% 21%, 100% 72%, 0 81%, 0 89%, 100% 89%, 100% 28%);
+  animation: img2 3s linear infinite;
+}
+
+.main_img__3 {
+  clip-path: polygon(0 13%, 0 17%, 100% 20%, 100% 67%, 0 70%, 0 65%, 0 65%, 100% 63%, 0 58%, 100% 57%, 100% 13%);
+  animation: img3 3s linear infinite;
+}
+
+.main_img__4 {
+  clip-path: polygon(0 34%, 100% 38%, 100% 49%, 0 40%);
+  animation: img4 3s linear infinite;
+}

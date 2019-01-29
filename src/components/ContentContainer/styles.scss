@@ -1,0 +1,29 @@
+.content_wrapp {
+  font-weight: 200;
+  margin: 10px 20px;
+
+  .title_h1 {
+    padding: {
+      top: 5vh;
+    };
+    max-width: 60vmax;
+    font-size: 3rem;
+    font-weight: inherit;
+  }
+
+  .sub_title {
+    font-weight: inherit;
+  }
+}
+
+@media screen and (max-device-height: 420px){
+  .content_wrapp {
+
+    .title_h1 {
+      padding: {
+        top: 0;
+      };
+      margin: 0;
+    }
+  }
+}
