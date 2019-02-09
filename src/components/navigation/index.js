@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
+import ContactsModal from "../ContactsModal";
 
 export default class Navigation extends Component{
     constructor(props) {
@@ -12,7 +13,7 @@ export default class Navigation extends Component{
             title: "About"},
             {url: '/blog',
             title: "Blog"},
-            {url: '/contacts',
+            {url: '#contacts',
             title:"Contact"}
             ];
 
@@ -20,6 +21,7 @@ export default class Navigation extends Component{
             selected: this.navList[0],
             mobileNav: false,
             isClosedNav: true,
+            isOpenContact: false,
         }
     }
 
@@ -48,13 +50,15 @@ export default class Navigation extends Component{
         let screenWidthChange = this.state.mobileNav !== !(document.documentElement.clientWidth > 767);
         let toggleMobileMenu = this.state.isClosedNav !== nextState.isClosedNav;
         let selectedChange = nextState.selected !== this.state.selected;
+        let isOpenContact = nextState.isOpenContact !== this.state.isOpenContact;
         let nextPropsChange = nextProps.history.location.pathname.slice(1).split('/')[0] !== this.state.selected.slice(1);
         if (nextPropsChange) this.setActiveMenu(nextProps.history.location.pathname);
         return (
             selectedChange ||
             nextPropsChange ||
             screenWidthChange ||
-            toggleMobileMenu
+            toggleMobileMenu ||
+            isOpenContact
         )
     }
 
@@ -86,19 +90,26 @@ export default class Navigation extends Component{
     // ----- Закритые меню по нажатию на пункт
     handleToggleClose = () => {
         this.setState({isClosedNav: !this.state.isClosedNav });
-        this.state.isClosedNav === true ?
+        this.state.mobileNav && this.state.isClosedNav === true ?
             document.querySelector("body").style.overflow = 'hidden' :
             document.querySelector("body").style.overflow = 'auto'
     };
 
-
+    // -------------
+    contactToggle = () => {
+        this.setState({isOpenContact: !this.state.isOpenContact});
+        if (this.state.mobileNav && !this.state.isClosedNav) this.handleToggleClose();
+    };
 
     render(){
 
         const navLi = this.navList.map((item) =>
             <Link to={item.url} key={item.title}>
                 <li id={item.url}
-                    onClick={this.handleSelect.bind(this)}
+                    onClick= {item.url ==='#contacts'? (e)=>{e.preventDefault();
+                                                            this.contactToggle()
+                                                            } :
+                                                            this.handleSelect.bind(this)}
                     className = {this.state.selected === item.url ? 'navigation__li__active' : null}>
                     {item.title}
                 </li>
@@ -116,8 +127,13 @@ export default class Navigation extends Component{
             </div>
         );
 
-        const desctopNav = <ul className={'navbar'}>{navLi}</ul>;
+        const desctopNav = <ul className={'navbar'}>
+            {navLi}
+            </ul>;
 
-        return this.state.mobileNav? mobileNavWrapp : desctopNav
+        return <Fragment>
+            {this.state.mobileNav? mobileNavWrapp : desctopNav}
+            {this.state.isOpenContact && <ContactsModal closeModal={this.contactToggle}/>}
+            </Fragment>
     }
 }

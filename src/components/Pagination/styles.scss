@@ -1,0 +1,25 @@
+$blue-gray_color: rgba(180, 196, 212, 1);
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 10px;
+}
+
+.pagination__page{
+  display: block;
+  padding: 5px 10px;
+  width: max-content;
+  margin: 5px;
+  font-size: 1.2rem;
+}
+.pagination__nav{
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: $blue-gray_color;
+}
+.pagination_selected_page {
+  border-bottom: 1px solid $blue-gray_color;
+}

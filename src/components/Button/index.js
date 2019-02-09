@@ -5,7 +5,7 @@ import './styles.scss';
 class Button extends Component {
     constructor(props){
         super(props);
-        this.text = this.props.btnText || 'More';
+        this.text = this.props.btnText || this.props.children || 'More';
     }
     render(){
         const {url} = this.props;

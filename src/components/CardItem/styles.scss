@@ -1,14 +1,15 @@
 $lite_grey: rgba(180, 196, 212, 1);
 $wite: rgba(255, 255, 255, 1);
 $wite_transparent: rgba(255, 255, 255, .3);
+$grey_info: rgba(85, 85, 85, 1);
 
 .card {
   background-color: $wite;
-  width: 30vw;
+/*  width: 30vw;
   flex-grow: 1;
   max-width: 300px;
   min-width: 200px;
-  margin: 10px;
+  margin: 10px;*/
   display: flex;
   flex-direction: column;
   &:hover{
@@ -24,7 +25,7 @@ $wite_transparent: rgba(255, 255, 255, .3);
     display: block;
     overflow: hidden;
     height: 25vmin;
-    transition: height 0.5s linear;
+    transition: height 0.2s linear;
   }
 
   .card_img {
@@ -51,7 +52,7 @@ $wite_transparent: rgba(255, 255, 255, .3);
   .card_text {
     height: 0;
     overflow: hidden;
-    transition: height 0.5s linear;
+    transition: height 0.2s linear;
     padding: 10px 10px 0;
   };
 
@@ -62,7 +63,8 @@ $wite_transparent: rgba(255, 255, 255, .3);
 
   .card__bottom_info {
     bottom: 0;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     border: {
       top: 1px solid $lite_grey;
     };
@@ -71,6 +73,34 @@ $wite_transparent: rgba(255, 255, 255, .3);
 
   .card_date {
     font-weight: 400;
-    color: rgb(85, 85, 85);
+    color: $grey_info;
+  }
+  .card_social {
+    display: flex;
+    color: $lite_grey;
+    font-size: 1rem;
+  }
+  .cart_likes{
+    position: relative;
+    margin: 0 20px;
+    &:before{
+      position: absolute;
+      left: -15px;
+      top: -5px;
+      content: '\1F592';
+      font-size: 1.3rem;
+    }
+  }
+  .cart_comments{
+    position: relative;
+    margin-left: 20px;
+    &:before{
+      position: absolute;
+      left: -25px;
+      top: -5px;
+      display: inline-block;
+      content: '\1F5E8';
+      font-size: 1.3rem;
+  }
   }
 }

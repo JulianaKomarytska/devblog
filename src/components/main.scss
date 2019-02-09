@@ -1,8 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,400,400i,900');
+/*@import url('https://fonts.googleapis.com/css?family=Cinzel:400,700');*/
+/*@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700,700i');*/
+
 $background_color_lightGrey: rgba(245, 245, 245, 1);
 html{
   font-family: 'Source Sans Pro', sans-serif;
 }
 body {
   background-color: $background_color_lightGrey;
+}
+h1 {
+
 }

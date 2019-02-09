@@ -1,6 +1,8 @@
 $lite_grey: rgba(180, 196, 212, 1);
 $wite: rgba(255, 255, 255, 1);
 $wite_transparent: rgba(255, 255, 255, .3);
+$hoverColor: rgba(0, 162, 255, 1);
+$blue-gray_color: rgba(180, 196, 212, 1);
 
 
 .article {
@@ -9,6 +11,10 @@ $wite_transparent: rgba(255, 255, 255, .3);
   flex-direction: column;
   width: 80vw;
   margin: 20px auto;
+
+  h1{
+    display: block;
+  }
 
 
   .article_text {
@@ -20,7 +26,94 @@ $wite_transparent: rgba(255, 255, 255, .3);
     font-weight: 600;
     align-self: flex-end;
   }
-};
+
+  .fl {
+    float: left;
+    margin: 10px;
+    max-width: 30vmin;
+    min-width: 200px;
+  }
+  .fr {
+    float: left;
+    margin: 10px;
+    max-width: 30vmin;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  .backnote {
+    display: block;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.5rem;
+    &:before{
+      display: block;
+      width: 100%;
+      content: '❝❞';
+      font-size: 2rem;
+      margin: 0 auto;
+    }
+  }
+}
+.article_slider {
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+  margin: 50px auto;
+  .article__btn_grow{
+    flex-grow: 1;
+  }
+  .article__prev_btn,
+  .article__next_btn {
+    position: relative;
+    display: flex;
+    width: max-content;
+    &:before{
+      display: none;
+      position: absolute;
+      font-size: 1.5rem;
+      top: -0.5rem;
+    }
+    &:after{
+      display: block;
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 0;
+      bottom: -5px;
+      background-color: $blue-gray_color;
+      transition: width .3s ease-in-out;
+
+    }
+    &:hover{
+      &:after{
+        width: 100%;
+      }
+      &:before{
+        display: block;
+      }
+    }
+  }
+  .article__prev_btn {
+    &:before{
+      left: -20px;
+      content: '\2992';
+      transform: rotateY(180deg);
+      color: $blue-gray_color;
+    }
+
+  }
+  .article__next_btn {
+    &:before{
+      right: -20px;
+      content: '\2992';
+      color: $blue-gray_color;
+    }
+  }
+
+}
 
 @media screen and (max-device-width: 768px){
   .article{

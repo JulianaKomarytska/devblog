@@ -1,0 +1,16 @@
+$GREY_font: rgba(159, 159, 159, 1);
+
+.breadcrumbs {
+  display: block;
+  color: $GREY_font;
+}
+.breadcrumbs_link {
+  padding: 5px 10px;
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 10px 5px;
+}
+
+.breadcrumbs_arrow {
+  display: inline-block;
+}
