@@ -41,13 +41,14 @@ class BlogPage extends Component{
 
 
     render() {
-        console.log('blog render')
+        console.log('blog render', this.props);
         if (this.props.match.params.articleID) this.getArticleItem();
 
         const {match} = this.props;
         return (
             <Fragment>
                     <Breadcrumbs history={this.props.history}/>
+
                             <Route path={`${match.url}`}
                                render={ (props)=>
                                    !this.state.articleID?
@@ -58,6 +59,7 @@ class BlogPage extends Component{
                                            <ErrorPage/>
                                }
                             />
+
 
             </Fragment>
     )}

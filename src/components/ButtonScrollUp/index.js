@@ -9,14 +9,14 @@ class ButtonScrollUp extends Component{
         }
     }
     componentDidMount(){
-        window.addEventListener('scroll', this.showUpp.bind(this));
+        window.addEventListener('scroll', this.showUpp);
     }
     shouldComponentUpdate(nextProps, nextState){
         return nextState.scrollUp !== this.state.scrollUp
 
     }
     componentWillUnmount(){
-        window.removeEventListener('scroll', this.showUpp.bind(this));
+        window.removeEventListener('scroll', this.showUpp);
     }
 
     showUpp = () => this.setState({ scrollUp: (document.documentElement.scrollTop >= document.documentElement.clientHeight/3)});

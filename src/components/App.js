@@ -25,10 +25,9 @@ class App extends Component{
                     <Route path={'/contacts'} render={()=><Fragment>
                                                                 <ContactsModal/>
                                                                 <MainPage/>
-                                                          </Fragment>}/>
-
-                    <Route exect path={'/blog/article=:articleID'} component={BlogPage}/>
-                    <Route path={'/blog/(page)?/:pageindex?'} component={BlogPage}/>
+                                                            </Fragment>}/>
+                    <Route path={'/blog/article=:articleID'} component={BlogPage}/>
+                    <Route exact path={`/blog/(page)?/:pageindex([0-9]+)?`} component={BlogPage}/>
                     <Route component={ErrorPage}/>
                 </Switch>
 
