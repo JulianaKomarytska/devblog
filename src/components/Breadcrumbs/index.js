@@ -22,8 +22,8 @@ class Breadcrumbs extends Component{
         }
 
         const breadcrumbs = arrURL.map( (item, index) => {
-            return <Fragment key={index}>
-                <Link key={index} to={item.url}><div className={'breadcrumbs_link'}>{item.title} </div></Link>
+            return <Fragment key={`breadcrumbs${index}`}>
+                <Link to={item.url}><div className={'breadcrumbs_link'}>{item.title} </div></Link>
                 {arrURL.length-1 !== index? <div className={'breadcrumbs_arrow'}>{String.fromCharCode(8621)}</div> : false}
             </Fragment>}
             );

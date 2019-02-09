@@ -4,6 +4,7 @@ import CardItem from '../CardItem';
 import ButtonScrollUp from '../ButtonScrollUp';
 
 class ArticleList extends Component {
+
     render(){
 
         const articleElements = this.props.articles.map( (article) =>

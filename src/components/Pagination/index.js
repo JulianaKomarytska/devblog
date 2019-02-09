@@ -1,12 +1,12 @@
 import React, {Component, Fragment} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, Route, matchPath} from 'react-router-dom';
 import './styles.scss';
 
 class Pagination extends Component{
     constructor(props){
         super(props);
         this.state = {
-            pageIndex: (this.props.match.params.pageindex)? +this.props.match.params.pageindex : 1,
+            pageIndex: (!isNaN(this.props.match.params.pageindex))? +this.props.match.params.pageindex : 1,
             itemPerPage: this.props.itemPerPage || 4,
 
         };
